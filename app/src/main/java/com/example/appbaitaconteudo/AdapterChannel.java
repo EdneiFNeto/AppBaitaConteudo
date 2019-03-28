@@ -9,11 +9,21 @@ import android.widget.TextView;
 
 public class AdapterChannel extends BaseAdapter {
 
-    public String[] planetas = new String[]{"Canal 1", "canal 2", "Canal 3", "Canal 4"};
+    public String[] planetas = new String[]{
+            "Canal 0",
+            "canal 1",
+            "Canal 2",
+            "Canal 3",
+            "Canal 4",
+            "Canal 5",
+            "Canal 6",
+            "Canal 7",
+            "Canal 8",
+    };
+
     public Context context;
 
     public AdapterChannel(Context context){
-
         this.context = context;
     }
 
