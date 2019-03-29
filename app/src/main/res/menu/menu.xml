@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item
-            android:id="@+id/navigation_songs"
-            android:icon="@drawable/ic_menu_24"
-            android:title="Songs"/>
-
-    <item
-            android:id="@+id/navigation_albums"
-            android:icon="@drawable/ic_menu_24"
-            android:title="Albums"/>
-
-    <item
-            android:id="@+id/navigation_artists"
-            android:icon="@drawable/ic_menu_24"
-            android:title="Artists"/>
+    <item android:id="@+id/action_search"
+        android:icon="@drawable/ic_menu_24"
+        app:showAsAction="always"
+        android:title="" />
 </menu>

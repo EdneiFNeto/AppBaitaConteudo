@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/users"
+            android:icon="@drawable/ic_person"
+            android:title="@string/user" />
+        <item
+            android:id="@+id/config"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/config" />
+
+        <item
+            android:id="@+id/logout"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/logout" />
+
+    </group>
+
+    <item android:title="CANAIS DISPONÍVEIS">
+        <menu>
+            <item
+                android:id="@+id/channel_0"
+                android:icon="@drawable/ic_live_tv"
+                android:title="@string/channel_0" />
+
+            <item
+                android:id="@+id/channel_1"
+                android:icon="@drawable/ic_live_tv"
+                android:title="@string/channel_1" />
+
+            <item
+                android:id="@+id/channel_2"
+                android:icon="@drawable/ic_live_tv"
+                android:title="@string/channel_2" />
+
+            <item
+                android:id="@+id/channel_3"
+                android:icon="@drawable/ic_live_tv"
+                android:title="@string/channel_3" />
+
+            <item
+                android:id="@+id/channel_4"
+                android:icon="@drawable/ic_live_tv"
+                android:title="@string/channel_4" />
+
+            <item
+                android:id="@+id/channel_5"
+                android:icon="@drawable/ic_live_tv"
+                android:title="@string/channel_5" />
+
+            <item
+                android:id="@+id/channel_6"
+                android:icon="@drawable/ic_live_tv"
+                android:title="@string/channel_6" />
+
+            <item
+                android:id="@+id/channel_7"
+                android:icon="@drawable/ic_live_tv"
+                android:title="@string/channel_7" />
+
+            <item
+                android:id="@+id/channel_8"
+                android:icon="@drawable/ic_live_tv"
+                android:title="@string/channel_8" />
+
+            <item
+                android:id="@+id/channel_9"
+                android:icon="@drawable/ic_live_tv"
+                android:title="@string/channel_9" />
+
+            <item
+                android:id="@+id/channel_10"
+                android:icon="@drawable/ic_live_tv"
+                android:title="@string/channel_10" />
+        </menu>
+    </item>
+</menu>

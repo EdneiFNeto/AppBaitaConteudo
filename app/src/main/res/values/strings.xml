@@ -1,3 +1,23 @@
 <resources>
-    <string name="app_name">App Baita Conteudo - TV</string>
+    <string name="app_name">Baita Conteúdo - TV</string>
+    <string name="user">Usuario</string>
+    <string name="help">Ajuda</string>
+    <string name="close">Fechar</string>
+    <string name="open">Abrir</string>
+    <string name="config">Configurações</string>
+
+    <string name="logout">Sair</string>
+
+
+    <string name="channel_0">24 Horas News</string>
+    <string name="channel_1">Bora  Filmes</string>
+    <string name="channel_2">Clubinho</string>
+    <string name="channel_3">Hello TV</string>
+    <string name="channel_4">Life Channel</string>
+    <string name="channel_5">M1</string>
+    <string name="channel_6">Mosaico</string>
+    <string name="channel_7">Promessas</string>
+    <string name="channel_8">YOU Chan</string>
+    <string name="channel_9">UP Channel</string>
+    <string name="channel_10">Entreter</string>
 </resources>
