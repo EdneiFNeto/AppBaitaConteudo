@@ -26,6 +26,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -33,7 +35,8 @@ import android.widget.Toast;
 import android.widget.VideoView;
 
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener,
+        View.OnTouchListener {
 
     private VideoView videoView;
     private String TAG = "MainLog";
@@ -43,10 +46,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private int screenWidth, screenHeight;
     private Toolbar myToolbar;
     private ProgressBar spinner;
-    private NavigationView navigationView;
-    private DrawerLayout drawerLayout;
-    private ActionBarDrawerToggle mToggle;
-    private boolean isladscape;
+    private LinearLayout  menu_left;
+    private DrawerLayout drawer_layout;
 
 
     @Override
@@ -59,25 +60,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         videoView = (VideoView) findViewById(R.id.videoview);
+        listView = (ListView) findViewById(R.id.listView);
+        listView.setAdapter(new AdapterChannel(this));
 
-        myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        myToolbar.inflateMenu(R.menu.menu);
-        setSupportActionBar(myToolbar);
-
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setIcon(R.mipmap.ic_logo_2);
-
+        listView.setOnItemClickListener(this);
         spinner = (ProgressBar) findViewById(R.id.progress_bar);
 
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        navigationView = (NavigationView) findViewById(R.id.navigation_view);
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        menu_left = (LinearLayout) findViewById(R.id.menu_left);
 
-        //mToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
-        //drawerLayout.setDrawerListener(mToggle);
-        //mToggle.syncState();
-        navigationView.setNavigationItemSelectedListener(this);
+
+
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+        drawer_layout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer_layout.setOnTouchListener(this);
+
     }
 
     @Override
@@ -98,10 +97,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Configuration configuration = getResources().getConfiguration();
 
             if (configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                myToolbar.setVisibility(View.GONE);
+                menu_left.setVisibility(View.GONE);
                 fullScreen();
             } else {
-                myToolbar.setVisibility(View.VISIBLE);
+                menu_left.setVisibility(View.VISIBLE);
             }
 
             playVideo(0);
@@ -118,12 +117,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         try {
             if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                myToolbar.setVisibility(View.GONE);
+                menu_left.setVisibility(View.GONE);
                 fullScreen();
 
             } else {
                 showSystemUI();
-                myToolbar.setVisibility(View.VISIBLE);
+                menu_left.setVisibility(View.VISIBLE);
             }
         } catch (Exception e) {
             Toast.makeText(this, "Error changed orientation: " + e.getMessage(),
@@ -141,8 +140,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
                     int uiOptions =
                             View.SYSTEM_UI_FLAG_IMMERSIVE
-                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                            | View.SYSTEM_UI_FLAG_FULLSCREEN;
+                                    | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                                    | View.SYSTEM_UI_FLAG_FULLSCREEN;
                     View decorView = getWindow().getDecorView();
                     decorView.setSystemUiVisibility(uiOptions);
                 }
@@ -248,50 +247,46 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.channel_0:
-                playVideo(0);
-                break;
-            case R.id.channel_1:
-                playVideo(1);
-                break;
-            case R.id.channel_2:
-                playVideo(2);
-                break;
-            case R.id.channel_3:
-                playVideo(3);
-                break;
-            case R.id.channel_4:
-                playVideo(4);
-                break;
-            case R.id.channel_5:
-                playVideo(5);
-                break;
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-            case R.id.channel_6:
-                playVideo(6);
-                break;
+       playVideo(position);
+       new Handler().post(new Runnable() {
+           @Override
+           public void run() {
+               menu_left.setVisibility(View.GONE);
+           }
+       });
+    }
 
-            case R.id.channel_7:
-                playVideo(7);
-                break;
 
-            case R.id.channel_8:
-                playVideo(8);
-                break;
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        try {
 
-            case R.id.channel_9:
-                playVideo(9);
-                break;
+            float x = event.getX();
+            float y = event.getY();
+            float width = screenWidth / 2;
+            float height = screenHeight;
 
-            case R.id.channel_10:
-                playVideo(10);
-                break;
+            switch (event.getAction()) {
 
+                case MotionEvent.ACTION_DOWN:
+
+                    if (((int) x >= 10 && (int) x <= (int) width)) {
+                        menu_left.setVisibility(View.VISIBLE);
+                    }
+
+                    if ((int) x > (int) width) {
+                        menu_left.setVisibility(View.GONE);
+                    }
+
+                    break;
+            }
+
+        } catch (Exception e) {
+            Log.e(TAG, "Error "+e.getMessage());
         }
-        //close on click item
-        drawerLayout.closeDrawer(GravityCompat.START);
+
         return false;
     }
 }

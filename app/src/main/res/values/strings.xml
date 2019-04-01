@@ -9,15 +9,15 @@
     <string name="logout">Sair</string>
 
 
-    <string name="channel_0">24 Horas News</string>
-    <string name="channel_1">Bora  Filmes</string>
-    <string name="channel_2">Clubinho</string>
-    <string name="channel_3">Hello TV</string>
-    <string name="channel_4">Life Channel</string>
-    <string name="channel_5">M1</string>
-    <string name="channel_6">Mosaico</string>
-    <string name="channel_7">Promessas</string>
-    <string name="channel_8">YOU Chan</string>
-    <string name="channel_9">UP Channel</string>
-    <string name="channel_10">Entreter</string>
+    <string name="h_news">24h News</string>
+    <string name="bora_filmes">Bora Filmes </string>
+    <string name="clubinho">Clubinho </string>
+    <string name="hello_tv">hello TV</string>
+    <string name="Life">Life </string>
+    <string name="mosaico">Rede Mosaico </string>
+    <string name="canal_promessas">Canal Promessas</string>
+    <string name="yu_channel">You Channel</string>
+    <string name="up_channel">UP Channel</string>
+    <string name="entreter">Entreter </string>
+    <string name="full_music">Full Music</string>
 </resources>

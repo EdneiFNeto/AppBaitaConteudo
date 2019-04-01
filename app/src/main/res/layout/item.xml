@@ -1,27 +1,31 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             xmlns:tools="http://schemas.android.com/tools"
-                                             android:layout_width="match_parent" android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <LinearLayout
 
-            android:padding="12dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            tools:ignore="MissingConstraints">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        tools:ignore="MissingConstraints">
 
         <ImageView
-                android:src="@mipmap/ic_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+            android:id="@+id/image_icon"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="30dp"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_24h_new" />
+
         <TextView
 
-                android:padding="5dp"
-                android:textSize="24dp"
-                android:text="Chanel"
-                android:textColor="#fff"
-                android:id="@+id/textChannel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+            android:id="@+id/textChannel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chanel"
+            android:paddingTop="12dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18dp" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
