@@ -21,6 +21,7 @@ public class AdapterChannel extends BaseAdapter {
             R.string.mosaico,
             R.string.up_channel,
             R.string.yu_channel,
+            R.string.life_channel,
     };
 
     public int[] icons = new int[]{
@@ -34,6 +35,7 @@ public class AdapterChannel extends BaseAdapter {
             R.mipmap.ic_mosaico,
             R.mipmap.ic_up_channel,
             R.mipmap.ic_yu_channel,
+            R.mipmap.ic_life_channel,
     };
 
     public Context context;

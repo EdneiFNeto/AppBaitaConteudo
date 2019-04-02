@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Baita Conteúdo - TV</string>
+    <string name="app_name">Baita Play</string>
     <string name="user">Usuario</string>
     <string name="help">Ajuda</string>
     <string name="close">Fechar</string>
@@ -13,7 +13,7 @@
     <string name="bora_filmes">Bora Filmes </string>
     <string name="clubinho">Clubinho </string>
     <string name="hello_tv">hello TV</string>
-    <string name="Life">Life </string>
+    <string name="life_channel">Life </string>
     <string name="mosaico">Rede Mosaico </string>
     <string name="canal_promessas">Canal Promessas</string>
     <string name="yu_channel">You Channel</string>
