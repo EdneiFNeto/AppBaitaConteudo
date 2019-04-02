@@ -26,6 +26,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -46,8 +47,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private int screenWidth, screenHeight;
     private Toolbar myToolbar;
     private ProgressBar spinner;
-    private LinearLayout  menu_left;
+    private LinearLayout  menu_left, toolbar;
     private DrawerLayout drawer_layout;
+    private ImageView footer;
 
 
     @Override
@@ -66,11 +68,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         listView.setAdapter(new AdapterChannel(this));
 
         listView.setOnItemClickListener(this);
+        listView.setSelection(0);
+        listView.setItemChecked(0, true);
+
         spinner = (ProgressBar) findViewById(R.id.progress_bar);
-
         menu_left = (LinearLayout) findViewById(R.id.menu_left);
-
-
+        toolbar = (LinearLayout) findViewById(R.id.toolbar);
+        footer = (ImageView) findViewById(R.id.footer);
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
@@ -97,10 +101,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             Configuration configuration = getResources().getConfiguration();
 
             if (configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                menu_left.setVisibility(View.GONE);
+                visibleAndHideComponets(View.GONE);
                 fullScreen();
             } else {
-                menu_left.setVisibility(View.VISIBLE);
+                visibleAndHideComponets(View.VISIBLE);
             }
 
             playVideo(0);
@@ -108,7 +112,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 Exception e) {
             Log.e(TAG, e.getMessage());
         }
-
     }
 
     @Override
@@ -117,12 +120,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         try {
             if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                menu_left.setVisibility(View.GONE);
+
+                visibleAndHideComponets(View.GONE);
                 fullScreen();
 
             } else {
                 showSystemUI();
-                menu_left.setVisibility(View.VISIBLE);
+                visibleAndHideComponets(View.VISIBLE);
             }
         } catch (Exception e) {
             Toast.makeText(this, "Error changed orientation: " + e.getMessage(),
@@ -168,7 +172,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         }, 1000);
     }
-
 
     private void playVideo(int position) {
 
@@ -247,17 +250,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+    public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
 
        playVideo(position);
        new Handler().post(new Runnable() {
            @Override
            public void run() {
                menu_left.setVisibility(View.GONE);
+               listView.setSelection(position);
+               listView.setItemChecked(position, true);
            }
        });
     }
-
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
@@ -288,5 +292,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
 
         return false;
+    }
+
+    public void visibleAndHideComponets(int visible){
+        menu_left.setVisibility(visible);
+        toolbar.setVisibility(visible);
+        footer.setVisibility(visible);
     }
 }

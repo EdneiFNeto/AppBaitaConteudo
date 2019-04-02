@@ -25,14 +25,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="0dp"
-            android:layout_marginTop="80dp"
-            android:layout_marginRight="0dp" />
+            android:layout_centerInParent="true" />
 
-        <!-- liest view  -->
+        <!-- toolbar  -->
         <LinearLayout
 
             android:id="@+id/toolbar"
@@ -57,13 +53,17 @@
 
         <!-- footer -->
         <ImageView
+
+            android:id="@+id/footer"
+            android:background="@color/colorPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:src="@drawable/ic_footer_app" />
+            android:src="@drawable/ic_logo_btc" />
 
         <!-- meu - left -->
         <LinearLayout
+            android:visibility="visible"
             android:id="@+id/menu_left"
             android:layout_width="300dp"
             android:layout_height="match_parent"
@@ -78,6 +78,8 @@
                 android:src="@drawable/ic_bg_menu_left_" />
 
             <ListView
+                android:choiceMode="singleChoice"
+                android:background="@color/colorWhite"
                 android:id="@+id/listView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
