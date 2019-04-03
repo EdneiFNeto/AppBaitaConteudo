@@ -11,32 +11,36 @@ import android.widget.TextView;
 public class AdapterChannel extends BaseAdapter {
 
     public int[] channels = new int[]{
-            R.string.h_news,
             R.string.bora_filmes,
-            R.string.canal_promessas,
             R.string.clubinho,
-            R.string.entreter,
-            R.string.full_music,
-            R.string.hello_tv,
             R.string.mosaico,
             R.string.up_channel,
-            R.string.yu_channel,
+            R.string.entreter,
             R.string.life_channel,
+            R.string.hello_tv,
+            R.string.full_music,
+            R.string.yu_channel,
+            R.string.canal_promessas,
+            R.string.h_news,
     };
 
+
     public int[] icons = new int[]{
-            R.mipmap.ic_24h_new,
+
             R.mipmap.ic_bora_filmes,
-            R.mipmap.ic_canal_promessas,
             R.mipmap.ic_clubinho,
-            R.mipmap.ic_entreter,
-            R.mipmap.ic_full_music,
-            R.mipmap.ic_hello_tv,
             R.mipmap.ic_mosaico,
             R.mipmap.ic_up_channel,
-            R.mipmap.ic_yu_channel,
+            R.mipmap.ic_entreter,
             R.mipmap.ic_life_channel,
+            R.mipmap.ic_hello_tv,
+            R.mipmap.ic_full_music,
+            R.mipmap.ic_yu_channel,
+            R.mipmap.ic_canal_promessas,
+            R.mipmap.ic_24h_new,
     };
+
+
 
     public Context context;
 

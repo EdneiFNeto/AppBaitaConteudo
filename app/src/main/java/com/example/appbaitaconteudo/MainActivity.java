@@ -176,47 +176,61 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     private void playVideo(int position) {
 
+            /*
+                - Bora
+                - Clubinho
+                - Rede Mosaico
+                - UP Channel
+                - Entreter
+                - Life
+                - hello TV
+                - Full Music
+                - You Channel
+                - Canal Promessas
+                - 24h News
+            */
+
         String url = "http://189.45.13.225/stream.php.m3u8?user=baita&pass=2018tv&token=1553733132&resptime=109&s=stream";
         String channel = "";
 
         switch (position) {
             case 0:
-                channel = url + "29.m3u8";
+                channel = url + "39.m3u8";//bora films
                 break;
             case 1:
-                channel = url + "39.m3u8";
+                channel = url + "41.m3u8";//clubinho
                 break;
             case 2:
-                channel = url + "41.m3u8";
+                channel = url + "27.m3u8";//rede mosaico
                 break;
             case 3:
-                channel = url + "44.m3u8";
+                channel = url + "42.m3u8";//up channel
                 break;
             case 4:
-                channel = url + "31.m3u8";
+                channel = url + "37.m3u8";//entreter
                 break;
             case 5:
-                channel = url + "28.m3u8";
+                channel = url + "31.m3u8";//life
                 break;
 
             case 6:
-                channel = url + "27.m3u8";
+                channel = url + "44.m3u8";//hello tv
                 break;
 
             case 7:
-                channel = url + "36.m3u8";
+                channel = url + "28.m3u8";//full music
                 break;
 
             case 8:
-                channel = url + "35.m3u8";
+                channel = url + "35.m3u8";//you channel
                 break;
 
             case 9:
-                channel = url + "42.m3u8";
+                channel = url + "36.m3u8";//canal promessa
                 break;
 
             case 10:
-                channel = url + "37.m3u8";
+                channel = url + "29.m3u8";//24h news
                 break;
         }
 
