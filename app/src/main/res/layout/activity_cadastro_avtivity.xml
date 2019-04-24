@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+    android:padding="20dp"
+    tools:context="com.example.appbaitaconteudo.LoginActivity">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_baita_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+
+        android:layout_marginTop="50dp"
+        android:textSize="18dp"
+        android:text="Nome"
+        android:textColor="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:textColor="@color/colorBlack_2"
+        android:paddingLeft="5dp"
+        android:textSize="18dp"
+        android:paddingTop="10dp"
+        android:hint="Nome"
+        android:id="@+id/campo_nome"
+        android:inputType="text"
+        android:layout_marginTop="12dp"
+        android:background="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:textSize="18dp"
+        android:text="Empresa"
+        android:textColor="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <EditText
+
+        android:textColor="@color/colorBlack_2"
+        android:paddingLeft="5dp"
+        android:textSize="18dp"
+        android:paddingTop="10dp"
+        android:hint="Empresa LTDA"
+        android:id="@+id/campo_empresa"
+        android:inputType="text"
+        android:layout_marginTop="12dp"
+        android:background="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+    <TextView
+
+        android:layout_marginTop="10dp"
+        android:textSize="18dp"
+        android:text="Cargo"
+        android:textColor="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <EditText
+
+        android:textColor="@color/colorBlack_2"
+        android:paddingLeft="5dp"
+        android:textSize="18dp"
+        android:paddingTop="10dp"
+        android:hint="Cargo"
+        android:id="@+id/campo_cargo"
+        android:inputType="text"
+        android:layout_marginTop="12dp"
+        android:background="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+    <TextView
+
+        android:layout_marginTop="10dp"
+        android:textSize="18dp"
+        android:text="E-mail"
+        android:textColor="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <EditText
+
+        android:textColor="@color/colorBlack_2"
+        android:paddingLeft="5dp"
+        android:textSize="18dp"
+        android:paddingTop="10dp"
+        android:hint="exemple@gmail.com"
+        android:id="@+id/campo_email"
+        android:inputType="textEmailAddress"
+        android:layout_marginTop="12dp"
+        android:background="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+    <TextView
+
+        android:layout_marginTop="10dp"
+        android:textSize="18dp"
+        android:text="Telefone"
+        android:textColor="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <EditText
+
+        android:paddingLeft="5dp"
+        android:textSize="18dp"
+        android:paddingTop="10dp"
+        android:hint="999999999"
+        android:id="@+id/campo_cel"
+        android:inputType="phone"
+        android:maxLength="9"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+
+
+
+    <Button
+
+        android:id="@+id/btn_cadastrar"
+        android:textSize="18dp"
+        android:textAlignment="center"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorAccent"
+        android:padding="10dp"
+        android:text="Cadastrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</ScrollView>

@@ -12,10 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppThemeNoActionBar">
 
+        <activity
+            android:name=".CadastroAvtivity"
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".MainActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait" />
 
+
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden" />
         <activity
             android:name=".SplashScreen"
             android:configChanges="orientation|screenSize|keyboardHidden">

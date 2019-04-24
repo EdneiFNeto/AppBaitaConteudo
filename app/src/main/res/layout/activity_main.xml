@@ -40,13 +40,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_baita_play" />
+
         </LinearLayout>
 
         <!-- progresbar -->
         <ProgressBar
+
             android:id="@+id/progress_bar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
             android:layout_centerInParent="true" />
 
         <!-- footer -->
@@ -61,36 +65,57 @@
             android:layout_alignParentBottom="true" />
 
         <!-- meu - left -->
-        <LinearLayout
+        <!--LinearLayout
+
             android:elevation="4dp"
             android:visibility="visible"
             android:id="@+id/menu_left"
             android:layout_width="300dp"
             android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
             android:background="@color/colorWhite"
             android:orientation="vertical">
 
-            <ImageView
-                android:background="@color/colorPrimary"
-                android:src="@drawable/ic_baita_play"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+            <LinearLayout
 
-            <ImageView
+                android:id="@+id/img_nav"
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
-                android:src="@drawable/ic_bg_menu_left_2" />
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:background="@color/colorPrimary"
+                    android:src="@drawable/ic_baita_play"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:src="@drawable/ic_bg_menu_left_2" />
+
+            </LinearLayout>
 
             <ListView
+
                 android:choiceMode="singleChoice"
                 android:background="@color/colorWhite"
                 android:id="@+id/listView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
-        </LinearLayout>
+        </LinearLayout-->
     </RelativeLayout>
+
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/navView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/header_layout"
+        app:menu="@menu/my_navigation_items" />
 
 </android.support.v4.widget.DrawerLayout>

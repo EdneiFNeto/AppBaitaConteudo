@@ -19,6 +19,22 @@
     </group>
 
     <item android:title="CANAIS DISPONÍVEIS">
+        <menu>
 
+            <item
+                android:id="@+id/users"
+                android:icon="@drawable/ic_person"
+                android:title="@string/user" />
+            <item
+                android:id="@+id/config"
+                android:icon="@drawable/ic_settings"
+                android:title="@string/config" />
+
+            <item
+                android:id="@+id/logout"
+                android:icon="@drawable/ic_settings"
+                android:title="@string/logout" />
+
+        </menu>
     </item>
 </menu>

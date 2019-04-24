@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private int screenWidth, screenHeight;
     private Toolbar myToolbar;
     private ProgressBar spinner;
-    private LinearLayout  menu_left, toolbar;
+    private LinearLayout  menu_left, toolbar, img_nav;
     private DrawerLayout drawer_layout;
     private ImageView footer;
 
@@ -65,16 +65,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_main);
 
         videoView = (VideoView) findViewById(R.id.videoview);
-        listView = (ListView) findViewById(R.id.listView);
-        listView.setAdapter(new AdapterChannel(this));
+        //listView = (ListView) findViewById(R.id.listView);
+        //listView.setAdapter(new AdapterChannel(this));
 
-        listView.setOnItemClickListener(this);
-        listView.setSelection(0);
-        listView.setItemChecked(0, true);
+        //listView.setOnItemClickListener(this);
+        //listView.setSelection(0);
+        //listView.setItemChecked(0, true);
 
         spinner = (ProgressBar) findViewById(R.id.progress_bar);
-        menu_left = (LinearLayout) findViewById(R.id.menu_left);
+        //menu_left = (LinearLayout) findViewById(R.id.menu_left);
         toolbar = (LinearLayout) findViewById(R.id.toolbar);
+        //img_nav = (LinearLayout) findViewById(R.id.img_nav);
+
+
         footer = (ImageView) findViewById(R.id.footer);
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -86,9 +89,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     protected void onResume() {
+
         super.onResume();
 
         try {
+
             windowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
             //detect size display
             Display display = windowManager.getDefaultDisplay();
@@ -176,19 +181,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     private void playVideo(int position) {
 
-            /*
-                - Bora
-                - Clubinho
-                - Rede Mosaico
-                - UP Channel
-                - Entreter
-                - Life
-                - hello TV
-                - Full Music
-                - You Channel
-                - Canal Promessas
-                - 24h News
-            */
 
         String url = "http://189.45.13.225/stream.php.m3u8?user=baita&pass=2018tv&token=1553733132&resptime=109&s=stream";
         String channel = "";
@@ -271,9 +263,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
        new Handler().post(new Runnable() {
            @Override
            public void run() {
-               menu_left.setVisibility(View.GONE);
-               listView.setSelection(position);
-               listView.setItemChecked(position, true);
+               //menu_left.setVisibility(View.GONE);
            }
        });
     }
@@ -292,11 +282,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 case MotionEvent.ACTION_DOWN:
 
                     if (((int) x >= 10 && (int) x <= (int) width)) {
-                        menu_left.setVisibility(View.VISIBLE);
+                        //menu_left.setVisibility(View.VISIBLE);
                     }
 
                     if ((int) x > (int) width) {
-                        menu_left.setVisibility(View.GONE);
+                        //menu_left.setVisibility(View.GONE);
                     }
 
                     break;
@@ -310,8 +300,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     public void visibleAndHideComponets(int visible){
-        menu_left.setVisibility(visible);
+        //menu_left.setVisibility(visible);
         toolbar.setVisibility(visible);
         footer.setVisibility(visible);
+        //img_nav.setVisibility(visible);
     }
 }
