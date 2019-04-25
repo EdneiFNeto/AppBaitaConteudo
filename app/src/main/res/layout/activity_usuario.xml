@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorPrimary"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_marginBottom="10dp"
+            android:textSize="26dp"
+            android:padding="12dp"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:layout_alignParentTop="true"
+            android:text="Tela de usuário"
+            android:background="@color/colorAccent"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+
+        <LinearLayout
+
+            android:padding="1dp"
+            android:layout_marginTop="60dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:padding="12dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="20dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:src="@mipmap/ic_persion_circle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="18dp"
+                    android:text="Nome do usuário"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/colorWhite"
+                android:textSize="18dp"
+                android:text="Email: emial@email.com"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/colorWhite"
+                android:textSize="18dp"
+                android:text="Telefone: (21) 9990-9999"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/colorWhite"
+                android:textSize="18dp"
+                android:text="Cidade: Rio de Janeiro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+
+</android.support.constraint.ConstraintLayout>

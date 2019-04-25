@@ -1,96 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/colorPrimary"
-    android:padding="12dp"
-    tools:context="com.example.appbaitaconteudo.LoginActivity">
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPrimary">
 
 
     <ImageView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/ic_baita_play"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-
-    <TextView
-
-        android:layout_marginTop="100dp"
-        android:textSize="18dp"
-        android:text="Login"
-        android:textColor="@color/colorWhite"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <EditText
-
-        android:textColor="@color/colorBlack_2"
-        android:paddingLeft="5dp"
-        android:textSize="18dp"
-        android:paddingTop="10dp"
-        android:hint="Login"
-        android:focusable="true"
-        android:id="@+id/campo_login"
-        android:inputType="text"
-        android:layout_marginTop="12dp"
-        android:background="@color/colorWhite"
-        android:layout_width="match_parent"
-        android:layout_height="40dp" />
-
-
-    <TextView
-
-        android:layout_marginTop="10dp"
-        android:textSize="18dp"
-        android:text="Senha"
-        android:textColor="@color/colorWhite"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-
-    <EditText
-
-        android:textColor="@color/colorBlack_2"
-        android:paddingLeft="5dp"
-        android:textSize="18dp"
-        android:paddingTop="10dp"
-        android:hint="senha"
-        android:id="@+id/campo_senha"
-        android:inputType="text"
-        android:layout_marginTop="12dp"
-        android:background="@color/colorWhite"
-        android:layout_width="match_parent"
-        android:layout_height="40dp" />
-
-
-    <Button
-
-        android:id="@+id/btn_logar"
-        android:textSize="18dp"
-        android:textAlignment="center"
         android:layout_marginTop="30dp"
-        android:background="@color/colorAccent"
-        android:text="Logar"
-        android:padding="10dp"
+        android:src="@drawable/ic_baita_play" />
+
+    <LinearLayout
+
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:padding="12dp">
 
-    <Button
 
-        android:id="@+id/btn_cadastrar"
-        android:textSize="18dp"
-        android:padding="10dp"
-        android:textAlignment="center"
-        android:layout_marginTop="10dp"
-        android:background="@color/colorAccent"
-        android:text="Cadastrar"
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login:"
+            android:textColor="@color/colorWhite"
+            android:textSize="18dp" />
+
+        <EditText
+
+            android:id="@+id/campo_login"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bordar_arredondada"
+            android:focusable="true"
+            android:inputType="text"
+            android:paddingLeft="5dp"
+            android:paddingTop="10dp"
+            android:textColor="@color/colorBlack_2"
+            android:textSize="18dp" />
+
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Senha:"
+            android:textColor="@color/colorWhite"
+            android:textSize="18dp" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/password_til"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/colorPrimary">
+
+        <EditText
+
+            android:id="@+id/campo_senha"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bordar_arredondada"
+            android:inputType="textPassword"
+            android:paddingLeft="5dp"
+            android:paddingTop="10dp"
+            android:textColor="@color/colorBlack_2"
+            android:textSize="18dp" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <Button
+
+            android:id="@+id/btn_logar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/bordar_arredondada_button"
+            android:padding="10dp"
+            android:text="Logar"
+            android:textAlignment="center"
+            android:textSize="18dp" />
+
+    </LinearLayout>
+
+
+    <ProgressBar
+
+        android:visibility="gone"
+        android:id="@+id/spinner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
 
+    <!--android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
 
-</LinearLayout>
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp"
+        android:layout_marginRight="16dp"
+        android:src="@drawable/ic_send" /-->
+
+</RelativeLayout>

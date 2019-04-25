@@ -21,6 +21,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -48,9 +50,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private int screenWidth, screenHeight;
     private Toolbar myToolbar;
     private ProgressBar spinner;
-    private LinearLayout  menu_left, toolbar, img_nav;
+    private LinearLayout menu_left, toolbar, img_nav;
     private DrawerLayout drawer_layout;
-    private ImageView footer;
+    private ImageView footer, menu_toolbar;
 
 
     @Override
@@ -65,26 +67,48 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_main);
 
         videoView = (VideoView) findViewById(R.id.videoview);
-        //listView = (ListView) findViewById(R.id.listView);
-        //listView.setAdapter(new AdapterChannel(this));
+        listView = (ListView) findViewById(R.id.listView);
+        listView.setAdapter(new AdapterChannel(this));
 
-        //listView.setOnItemClickListener(this);
-        //listView.setSelection(0);
-        //listView.setItemChecked(0, true);
+        listView.setOnItemClickListener(this);
+        listView.setSelection(0);
+        listView.setItemChecked(0, true);
 
         spinner = (ProgressBar) findViewById(R.id.progress_bar);
-        //menu_left = (LinearLayout) findViewById(R.id.menu_left);
+        menu_left = (LinearLayout) findViewById(R.id.menu_left);
         toolbar = (LinearLayout) findViewById(R.id.toolbar);
+
+        menu_toolbar = (ImageView) findViewById(R.id.menu_toolbar);
+        menu_toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                menu_left.setVisibility(View.VISIBLE);
+            }
+        });
+
         //img_nav = (LinearLayout) findViewById(R.id.img_nav);
 
-
         footer = (ImageView) findViewById(R.id.footer);
-
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         drawer_layout = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer_layout.setOnTouchListener(this);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_item, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+
+        return true;
     }
 
     @Override
@@ -113,7 +137,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 visibleAndHideComponets(View.VISIBLE);
             }
 
-            playVideo(0);
+            playVideo(1);
         } catch (
                 Exception e) {
             Log.e(TAG, e.getMessage());
@@ -240,6 +264,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void onPrepared(MediaPlayer mp) {
                 videoView.start();
+                videoView.setBackgroundResource(0);
                 spinner.setVisibility(View.GONE);
             }
         });
@@ -248,7 +273,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public boolean onError(MediaPlayer mp, int what, int extra) {
                 spinner.setVisibility(View.GONE);
-                videoView.setBackgroundResource(R.drawable.ic_error_video);
+                videoView.setBackgroundResource(R.drawable.imagem_404_baitaplay);
                 return true;
             }
         });
@@ -259,13 +284,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
 
-       playVideo(position);
-       new Handler().post(new Runnable() {
-           @Override
-           public void run() {
-               //menu_left.setVisibility(View.GONE);
-           }
-       });
+        playVideo(position);
+
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                menu_left.setVisibility(View.GONE);
+            }
+        });
     }
 
     @Override
@@ -286,21 +312,21 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     }
 
                     if ((int) x > (int) width) {
-                        //menu_left.setVisibility(View.GONE);
+                        menu_left.setVisibility(View.GONE);
                     }
 
                     break;
             }
 
         } catch (Exception e) {
-            Log.e(TAG, "Error "+e.getMessage());
+            Log.e(TAG, "Error " + e.getMessage());
         }
 
         return false;
     }
 
-    public void visibleAndHideComponets(int visible){
-        //menu_left.setVisibility(visible);
+    public void visibleAndHideComponets(int visible) {
+        menu_left.setVisibility(visible);
         toolbar.setVisibility(visible);
         footer.setVisibility(visible);
         //img_nav.setVisibility(visible);

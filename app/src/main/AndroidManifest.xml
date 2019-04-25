@@ -11,22 +11,24 @@
         android:roundIcon="@mipmap/ic_logo_baita"
         android:supportsRtl="true"
         android:theme="@style/AppThemeNoActionBar">
-
+        <activity android:name=".UsuarioActivity"></activity>
         <activity
             android:name=".CadastroAvtivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".LoginActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait" />
-
-
         <activity
             android:name=".MainActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden" />
+            android:configChanges="orientation|screenSize|keyboardHidden">
+
+        </activity>
         <activity
             android:name=".SplashScreen"
-            android:configChanges="orientation|screenSize|keyboardHidden">
+            android:configChanges="orientation|screenSize|keyboardHidden" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
