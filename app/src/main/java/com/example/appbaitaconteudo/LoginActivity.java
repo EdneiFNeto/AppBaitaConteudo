@@ -63,6 +63,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             user.setLogin(campo_login.getText().toString());
             user.setSenha(campo_senha.getText().toString());
+
             final LoginPOST loginPOST = new LoginPOST(this, user);
             loginPOST.LoginPOST();
 
@@ -74,19 +75,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 public void run() {
 
                     spinner.setVisibility(View.GONE);
+                    if (loginPOST.resp != null) {
 
-                    if (loginPOST.login != null && loginPOST.senha != null) {
-
-                        if (loginPOST.login.equals(user.getLogin()) && loginPOST.senha.equals(user.getSenha())) {
-                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                        } else {
-                            DialogAlertUtil.showDialogSuccess(LoginActivity.this, "Erro ", "Erro de autenticão!\nTente novamente.");
+                        if (loginPOST.resp.equals("200")) {
+                            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                        }else{
+                            DialogAlertUtil.showDialogSuccess(LoginActivity.this, "Aviso ", "Erro de autenticão!\nTente novamente.");
                         }
-
                     }else{
-                        DialogAlertUtil.showDialogSuccess(LoginActivity.this, "Erro ", "Erro de autenticão!\nTente novamente.");
+                        DialogAlertUtil.showDialogSuccess(LoginActivity.this, "Aviso ", "Falha na conexão\nTente novamente !");
                     }
-
                 }
             }, 2000);
         } catch (Exception ex) {

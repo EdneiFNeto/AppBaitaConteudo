@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group>
+        <item
+            app:showAsAction="always"
+            android:icon="@drawable/ic_person"
+            android:title="Usuário"
+            android:id="@+id/item_user"/>
+
+        <item
+            app:showAsAction="always"
+            android:icon="@drawable/ic_settings"
+            android:title="Usuário"
+            android:id="@+id/item_config"/>
+
+        <item
+            app:showAsAction="always"
+            android:icon="@drawable/ic_power"
+            android:title="Usuário"
+            android:id="@+id/item_logout"/>
+    </group>
+
+    <item android:title="">
+        <menu>
+            <item
+                app:showAsAction="always"
+                android:icon="@drawable/ic_student"
+                android:title="Channel"/>
+        </menu>
+    </item>
+</menu>

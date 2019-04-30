@@ -21,11 +21,11 @@ public class LoginPOST {
 
     private static final String TAG = "LoginHTTPLog";
     private static Context context;
-    //private static String URL_API = "https://baitaplay.com.br/api/";
-    private static String URL_API = "http://wiki.moebius.com.br/fibra_externo/baita-conteudo/api/login_api.php";
+    private static String URL_API = "https://baitaplay.com.br/api/auth_user.php";
+    //private static String URL_API = "http://wiki.moebius.com.br/fibra_externo/baita-conteudo/api/login_api.php";
 
     private User user;
-    public String login, senha;
+    public String login, senha, resp;
 
     public LoginPOST(Context context, User user) {
 
@@ -48,8 +48,7 @@ public class LoginPOST {
                             for (int i = 0; i < jsonarray.length(); i++) {
 
                                 JSONObject jsonobject = jsonarray.getJSONObject(i);
-                                login = jsonobject.getString("login");
-                                senha = jsonobject.getString("senha");
+                                resp = jsonobject.getString("resp");
                             }
 
                         } catch (JSONException e) {
