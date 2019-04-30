@@ -26,6 +26,7 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
     private ImageView menu_toolbar;
     private NavigationView navigation_view;
     private DrawerLayout drawer_layout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,8 +41,8 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
         listView.setOnItemClickListener(this);
 
         navigation_view = (NavigationView) findViewById(R.id.navigation_view);
-        drawer_layout   = (DrawerLayout) findViewById(R.id.drawer_layout);
-        menu_toolbar    = (ImageView) findViewById(R.id.menu_toolbar);
+        drawer_layout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        menu_toolbar = (ImageView) findViewById(R.id.menu_toolbar);
 
         menu_toolbar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,7 +65,7 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.item_user:
                 Toast.makeText(this, "user", Toast.LENGTH_SHORT).show();
                 break;
@@ -75,13 +76,10 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-        switch (position){
-            case 0:
+        Intent intent = new Intent(HomeActivity.this, ChannelActivity.class);
+        intent.putExtra("channel", ""+position);
+        startActivity(intent);
 
-                Intent intent = new Intent(HomeActivity.this, ChannelActivity.class);
-                intent.putExtra("channel", position);
-                startActivity(intent);
-                break;
-        }
+        drawer_layout.closeDrawer(Gravity.START, true);
     }
 }

@@ -6,48 +6,67 @@
     android:background="@color/colorPrimary"
     android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <!-- toobar -->
-        <include layout="@layout/toolbar_layout" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="12dp">
+            android:orientation="vertical">
 
-            <!-- video view -->
-            <VideoView
-                android:id="@+id/videoView"
-                android:layout_width="wrap_content"
-                android:layout_height="300dp" />
+            <!-- toobar -->
+            <include layout="@layout/toolbar_layout" />
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:text="Titulo Canal"
-                android:textColor="@color/colorWhite"
-                android:textSize="24dp" />
+                android:orientation="vertical">
 
-            <TextView
-                android:textAlignment="textStart"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500."
-                android:textColor="@color/colorWhite"
-                android:textSize="16dp"
-                android:gravity="start" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!-- video view -->
+                    <VideoView
+                        android:layout_centerInParent="true"
+                        android:id="@+id/vide_view_channel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <ProgressBar
+                        android:layout_centerInParent="true"
+                        android:visibility="gone"
+                        android:id="@+id/spinner_channel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </RelativeLayout>
+
+
+                <TextView
+                    android:paddingLeft="12dp"
+                    android:id="@+id/title_channel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="24dp" />
+
+                <com.codesgood.views.JustifiedTextView
+                    android:paddingLeft="12dp"
+                    android:id="@+id/tv_justified_paragraph"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
-    </LinearLayout>
-
+    </RelativeLayout>
 
     <!-- navigation view -->
     <include layout="@layout/navigation_view_layout" />
