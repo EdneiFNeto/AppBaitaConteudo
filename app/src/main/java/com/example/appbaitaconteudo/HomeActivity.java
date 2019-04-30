@@ -66,8 +66,8 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.item_user:
-                Toast.makeText(this, "user", Toast.LENGTH_SHORT).show();
+            case R.id.item_user_logado:
+                startActivity(new Intent(HomeActivity.this, UsuarioActivity.class));
                 break;
         }
         return super.onOptionsItemSelected(item);

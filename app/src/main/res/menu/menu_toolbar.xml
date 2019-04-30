@@ -4,7 +4,7 @@
 
     <item
         android:icon="@mipmap/ic_user"
-        android:id="@+id/action_menu_left"
+        android:id="@+id/item_user_logado"
         app:showAsAction="always"
         android:title="" />
 

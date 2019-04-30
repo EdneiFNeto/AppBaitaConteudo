@@ -83,7 +83,6 @@ public class ChannelActivity extends AppCompatActivity implements AdapterView.On
         Configuration configuration = getResources().getConfiguration();
         if (configuration.orientation == Configuration.ORIENTATION_LANDSCAPE)
             return true;
-
         return false;
     }
 
@@ -91,7 +90,6 @@ public class ChannelActivity extends AppCompatActivity implements AdapterView.On
     protected void onResume() {
         super.onResume();
 
-        //detect size display
         Display display = windowManager.getDefaultDisplay();
         DisplayMetrics metrics = new DisplayMetrics();
         display.getMetrics(metrics);
@@ -224,8 +222,10 @@ public class ChannelActivity extends AppCompatActivity implements AdapterView.On
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
-            case R.id.item_user:
-                Toast.makeText(this, "user", Toast.LENGTH_SHORT).show();
+            case R.id.item_user_logado:
+                Intent intent = new Intent(ChannelActivity.this, UsuarioActivity.class);
+                startActivity(intent);
+                finish();
                 break;
         }
 
