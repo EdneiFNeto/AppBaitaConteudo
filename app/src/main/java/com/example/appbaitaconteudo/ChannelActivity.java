@@ -1,46 +1,43 @@
 package com.example.appbaitaconteudo;
 
 import android.content.Intent;
-import android.support.design.widget.NavigationView;
+import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.example.appbaitaconteudo.adapters.CanaisAdapter;
+public class ChannelActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
-public class HomeActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
-
-    private GridView gridView;
-    private ListView listView;
     private Toolbar toolbar;
+    private RelativeLayout relative_layout_channel;
     private ImageView menu_toolbar;
-    private NavigationView navigation_view;
     private DrawerLayout drawer_layout;
+    private String channel;
+    private ListView listView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_);
-
-        gridView = (GridView) findViewById(R.id.gridview);
-        gridView.setAdapter(new CanaisAdapter(this));
-        gridView.setOnItemClickListener(this);
+        setContentView(R.layout.activity_channel);
 
         listView = (ListView) findViewById(R.id.listView);
         listView.setAdapter(new AdapterChannel(this));
         listView.setOnItemClickListener(this);
 
-        navigation_view = (NavigationView) findViewById(R.id.navigation_view);
-        drawer_layout   = (DrawerLayout) findViewById(R.id.drawer_layout);
+        toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        drawer_layout   = (DrawerLayout) findViewById(R.id.drawer_layout_channel);
         menu_toolbar    = (ImageView) findViewById(R.id.menu_toolbar);
 
         menu_toolbar.setOnClickListener(new View.OnClickListener() {
@@ -50,10 +47,11 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         });
 
-        toolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-
+        Intent intent = getIntent();
+        channel = intent.getStringExtra("channel");
+        if(channel!= null){
+            Toast.makeText(this, "Channel "+ channel, Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -77,11 +75,13 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
 
         switch (position){
             case 0:
-
-                Intent intent = new Intent(HomeActivity.this, ChannelActivity.class);
-                intent.putExtra("channel", position);
-                startActivity(intent);
+                Toast.makeText(this, "Position "+0, Toast.LENGTH_SHORT).show();
                 break;
         }
+
+        Intent intent = new Intent(ChannelActivity.this, ChannelActivity.class);
+        intent.putExtra("channel", position);
+        startActivity(intent);
+        //drawer_layout.openDrawer(Gravity.START);
     }
 }

@@ -14,15 +14,24 @@
 
         <activity
             android:name=".HomeActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"></activity>
+            android:configChanges="orientation|screenSize|keyboardHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
 
         <activity android:name=".UsuarioActivity" />
+
+        <activity android:name=".ChannelActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden" />
 
         <activity
             android:name=".CadastroAvtivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".LoginActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
@@ -36,10 +45,6 @@
             android:name=".SplashScreen"
             android:configChanges="orientation|screenSize|keyboardHidden">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

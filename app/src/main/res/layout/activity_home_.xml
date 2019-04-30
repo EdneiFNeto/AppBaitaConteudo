@@ -14,25 +14,7 @@
         android:orientation="vertical">
 
         <!-- toobar -->
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/my_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="@color/colorPrimary"
-            android:elevation="4dp"
-            tools:ignore="MissingConstraints">
-
-            <ImageView
-                android:id="@+id/menu_toolbar"
-                android:src="@drawable/ic_menu_24"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <ImageView
-                android:src="@drawable/ic_baita_play"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </android.support.v7.widget.Toolbar>
+        <include layout="@layout/toolbar_layout"/>
 
         <!-- banner -->
         <ImageView
@@ -40,7 +22,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_bg_menu_left_2" />
 
-
+        <!-- grid view -->
         <GridView
             android:background="@color/colorPrimary"
             android:padding="1dp"
@@ -54,16 +36,7 @@
     </LinearLayout>
 
 
-    <android.support.design.widget.NavigationView
-
-        android:id="@+id/navigation_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start">
-        <ListView
-            android:id="@+id/listView"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"/>
-    </android.support.design.widget.NavigationView>
+    <!-- navigation view -->
+    <include layout="@layout/navigation_view_layout"/>
 
 </android.support.v4.widget.DrawerLayout>
