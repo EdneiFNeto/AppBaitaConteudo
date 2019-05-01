@@ -6,6 +6,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,6 +18,10 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.appbaitaconteudo.adapters.CanaisAdapter;
+import com.example.appbaitaconteudo.dao.UserDao;
+import com.example.appbaitaconteudo.model.User;
+
+import java.util.List;
 
 public class HomeActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
@@ -26,6 +31,7 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
     private ImageView menu_toolbar;
     private NavigationView navigation_view;
     private DrawerLayout drawer_layout;
+    private String TAG = "HomeLogin";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +60,22 @@ public class HomeActivity extends AppCompatActivity implements AdapterView.OnIte
         toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        //select data bb
+        UserDao dao = new UserDao(this);
+        try {
+            List<User> userList  = dao.listar();
+            for (User users: userList){
+                Log.e(TAG,"Nome: "+ users.getNome());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

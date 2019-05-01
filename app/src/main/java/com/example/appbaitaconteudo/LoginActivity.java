@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 
+import com.example.appbaitaconteudo.dao.UserDao;
 import com.example.appbaitaconteudo.model.User;
 import com.example.appbaitaconteudo.utils.DialogAlertUtil;
 
@@ -63,6 +64,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             user.setLogin(campo_login.getText().toString());
             user.setSenha(campo_senha.getText().toString());
+            //flag permite user enter automatic
+            user.setStatus("1");
 
             final LoginPOST loginPOST = new LoginPOST(this, user);
             loginPOST.LoginPOST();
@@ -78,11 +81,21 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     if (loginPOST.resp != null) {
 
                         if (loginPOST.resp.equals("200")) {
-                            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
-                        }else{
+
+                            //save database
+                            UserDao dao = new UserDao(LoginActivity.this);
+                            try {
+                                dao.save(user);
+                                startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                                DialogAlertUtil.showDialogSuccess(LoginActivity.this, "Aviso ",
+                                        "Erro de salvar os dados do usuário na banco !");
+                            }
+                        } else {
                             DialogAlertUtil.showDialogSuccess(LoginActivity.this, "Aviso ", "Erro de autenticão!\nTente novamente.");
                         }
-                    }else{
+                    } else {
                         DialogAlertUtil.showDialogSuccess(LoginActivity.this, "Aviso ", "Falha na conexão\nTente novamente !");
                     }
                 }

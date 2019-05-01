@@ -2,6 +2,7 @@ package com.example.appbaitaconteudo.model;
 
 public class User {
 
+    private String id;
     private String nome;
     private String email;
     private String empresa;
@@ -9,6 +10,23 @@ public class User {
     private String telefone;
     private String senha;
     private String login;
+    private String status;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public String getNome() {
         return nome;

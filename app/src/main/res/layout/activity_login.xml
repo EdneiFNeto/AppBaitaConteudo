@@ -42,6 +42,7 @@
             android:background="@drawable/bordar_arredondada"
             android:focusable="true"
             android:inputType="text"
+            android:text="baitaconteudo"
             android:paddingLeft="5dp"
             android:paddingTop="10dp"
             android:textColor="@color/colorBlack_2"
@@ -66,6 +67,7 @@
 
         <EditText
 
+            android:text="soubaita10"
             android:id="@+id/campo_senha"
             android:layout_width="match_parent"
             android:layout_height="50dp"

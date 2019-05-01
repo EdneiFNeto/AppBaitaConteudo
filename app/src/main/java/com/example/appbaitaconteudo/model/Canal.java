@@ -4,7 +4,7 @@ import com.example.appbaitaconteudo.R;
 
 public class Canal {
 
-    public static String nome[] = {
+    public static String[] nome = {
 
             "Bora Filmes",
             "Clubinho Play",
